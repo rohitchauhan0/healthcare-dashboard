@@ -4,11 +4,11 @@ import { PasskeyModal } from "../components/PasskeyModal";
 import { PatientForm } from "@/components/PatientForm";
 import "./globals.css";
 
-type SearchParamProps = {
-  searchParams: { [key: string]: string | string[] | undefined };
-};
+interface PageProps {
+  searchParams?: { [key: string]: string | string[] | undefined };
+}
 
-const Home = async ({ searchParams }: SearchParamProps) => {
+const Page = ({ searchParams }: PageProps) => {
   const isAdmin = searchParams?.admin === "true";
 
   return (
@@ -49,4 +49,4 @@ const Home = async ({ searchParams }: SearchParamProps) => {
   );
 };
 
-export default Home;
+export default Page;

@@ -47,6 +47,7 @@ export const AppointmentForm = ({
     defaultValues: {
       primaryPhysician: appointment ? appointment?.primaryPhysician : "",
       schedule: appointment
+      // eslint-disable-next-line @typescript-eslint/no-non-null-asserted-optional-chain
         ? new Date(appointment?.schedule!)
         : new Date(Date.now()),
       reason: appointment ? appointment.reason : "",
@@ -95,6 +96,7 @@ export const AppointmentForm = ({
 
 
         if (updatedAppointment) {
+          // eslint-disable-next-line @typescript-eslint/no-unused-expressions
           setOpen && setOpen(false);
           form.reset();
         }

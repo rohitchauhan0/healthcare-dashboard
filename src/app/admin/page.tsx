@@ -10,6 +10,7 @@ import { apiconnector } from "@/config/api-connector";
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 interface Appointment {
   cancellationReason: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   user: any;
   _id: string;
   patientId: {

@@ -1,16 +1,14 @@
-
 import Image from "next/image";
 import Link from "next/link";
 import { PasskeyModal } from "../components/PasskeyModal";
 import { PatientForm } from "@/components/PatientForm";
 import "./globals.css";
-declare type SearchParamProps = {
-  params: { [key: string]: string };
+
+type SearchParamProps = {
   searchParams: { [key: string]: string | string[] | undefined };
 };
 
-
-const Home = async({ searchParams }: SearchParamProps) => {
+const Home = async ({ searchParams }: SearchParamProps) => {
   const isAdmin = searchParams?.admin === "true";
 
   return (

@@ -4,11 +4,11 @@ import { PasskeyModal } from "../components/PasskeyModal";
 import { PatientForm } from "@/components/PatientForm";
 import "./globals.css";
 
-interface PageProps {
-  searchParams?: { [key: string]: string | string[] | undefined };
-}
+type Props = {
+  searchParams?: Record<string, string | string[] | undefined>;
+};
 
-const Home = async({ searchParams }: PageProps) => {
+const Home = async({ searchParams }: Props) => {
   const isAdmin = searchParams?.admin === "true";
 
   return (

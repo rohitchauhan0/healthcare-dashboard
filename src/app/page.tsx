@@ -1,22 +1,25 @@
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { PasskeyModal } from "../components/PasskeyModal";
 import { PatientForm } from "@/components/PatientForm";
 import "./globals.css";
 
-type Props = {
-  searchParams?: Record<string, string | string[] | undefined>;
-};
+interface PageProps {
+  searchParams?: { [key: string]: string | string[] | undefined };
+}
 
-const Home = async({ searchParams }: Props) => {
-  const isAdmin = searchParams?.admin === "true";
+const Home = ({ searchParams }: PageProps) => {
+  const isAdmin = Array.isArray(searchParams?.admin)
+    ? searchParams.admin.includes("true")
+    : searchParams?.admin === "true";
 
   return (
     <div className="flex h-screen max-h-screen">
       {isAdmin && <PasskeyModal />}
 
       <section className="remove-scrollbar container my-auto">
-        <div className="sub-container max-w-[496px] px-10 ">
+        <div className="sub-container max-w-[496px] px-10">
           <Image
             src="/assets/icons/logo-full.svg"
             height={1000}

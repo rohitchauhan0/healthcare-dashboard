@@ -5,13 +5,13 @@ import { PatientForm } from "@/components/PatientForm";
 import "./globals.css";
 
 interface PageProps {
-  searchParams?: { [key: string]: string | string[] | undefined };
+  searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
 }
-
-const Home = ({ searchParams }: PageProps) => {
-  const isAdmin = Array.isArray(searchParams?.admin)
-    ? searchParams.admin.includes("true")
-    : searchParams?.admin === "true";
+const Home = async ({ searchParams }: PageProps) => {
+  const params = await searchParams;
+  const isAdmin = Array.isArray(params?.admin)
+    ? params.admin.includes("true")
+    : params?.admin === "true";
 
   return (
     <div className="flex h-screen max-h-screen">

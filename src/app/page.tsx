@@ -1,4 +1,4 @@
-"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { PasskeyModal } from "../components/PasskeyModal";
@@ -10,7 +10,7 @@ declare type SearchParamProps = {
 };
 
 
-const Home = ({ searchParams }: SearchParamProps) => {
+const Home = async({ searchParams }: SearchParamProps) => {
   const isAdmin = searchParams?.admin === "true";
 
   return (

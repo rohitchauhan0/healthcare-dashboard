@@ -8,7 +8,7 @@ interface PageProps {
   searchParams?: { [key: string]: string | string[] | undefined };
 }
 
-const Page = ({ searchParams }: PageProps) => {
+const Home = async({ searchParams }: PageProps) => {
   const isAdmin = searchParams?.admin === "true";
 
   return (
@@ -49,4 +49,4 @@ const Page = ({ searchParams }: PageProps) => {
   );
 };
 
-export default Page;
+export default Home;

@@ -5,14 +5,13 @@ import { apiconnector } from "@/config/api-connector";
 import { AppointmentForm } from "@/components/AppointmentForm";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { useParams } from "next/navigation";
 
-interface SearchParamProps {
-  params: {
-    userId: string;
-  };
-}
 
-const Appointment = ({ params: { userId } }: SearchParamProps) => {
+
+const Appointment = () => {
+  const params = useParams() as { userId: string };
+  const { userId } = params;
   const [userData, setUserData] = useState<{
     _id: string;
     patientId: string;
@@ -40,18 +39,18 @@ const Appointment = ({ params: { userId } }: SearchParamProps) => {
       <section className="remove-scrollbar container my-auto">
         <div className="sub-container max-w-[860px] flex-1 justify-between">
           <div className=" w-full flex items-center justify-between mb-12">
-          <Image
-            src="/assets/icons/logo-full.svg"
-            height={1000}
-            width={1000}
-            alt="logo"
-            className=" h-10 w-fit"
-          />
-          <Link href={`/patients/${userId}/my-appointments`}>
-            <Button variant="outline" className=" bg-green-500 text-white">
-              My Appointments
-            </Button>
-          </Link>
+            <Image
+              src="/assets/icons/logo-full.svg"
+              height={1000}
+              width={1000}
+              alt="logo"
+              className=" h-10 w-fit"
+            />
+            <Link href={`/patients/${userId}/my-appointments`}>
+              <Button variant="outline" className=" bg-green-500 text-white">
+                My Appointments
+              </Button>
+            </Link>
           </div>
 
           {userData && (

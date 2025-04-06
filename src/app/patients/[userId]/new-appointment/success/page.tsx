@@ -3,18 +3,13 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
-import { useSearchParams } from "next/navigation";
+import { useParams} from "next/navigation";
 
-interface SearchParamProps {
-  params: {
-    userId: string;
-  };
-}
 
-const RequestSuccess = ({ params: { userId: pathUserId } }: SearchParamProps) => {
-  const searchParams = useSearchParams();
-  const queryUserId = searchParams.get("userId");
-  const userId = queryUserId || pathUserId;
+
+const RequestSuccess = () => {
+  const params = useParams() as { userId: string };
+  const { userId } = params;
   return (
     <div className="flex h-screen max-h-screen px-[5%]">
       <div className="m-auto flex flex-1 flex-col items-center justify-between gap-10 py-10">

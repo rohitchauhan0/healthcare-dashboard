@@ -4,14 +4,14 @@ import React, { useEffect, useState } from "react";
 import { Appointment, columns } from "@/components/table/columns";
 import { apiconnector } from "@/config/api-connector";
 import { DataTable } from "@/components/table/DataTable";
+import { useParams } from "next/navigation";
 
-interface SearchParamProps {
-  params: {
-    userId: string;
-  };
-}
 
-const Page = ({ params: { userId } }: SearchParamProps) => {
+
+
+const Page =() => {
+  const params = useParams() as { userId: string };
+  const { userId } = params;
   const [appointments, setAppointments] = useState<Appointment[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 

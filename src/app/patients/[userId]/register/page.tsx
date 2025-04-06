@@ -3,14 +3,13 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { apiconnector } from "@/config/api-connector";
 import RegisterForm from "@/components/RegisterForm";
+import { useParams } from "next/navigation";
 
-type SearchParamProps = {
-  params: {
-    userId: string;
-  };
-};
 
-const Register = ({ params: { userId } }: SearchParamProps) => {
+
+  const Register = () => {
+    const params = useParams() as { userId: string };
+    const { userId } = params;
   const [user, setUser] = useState<{
     _id: string;
     name: string;

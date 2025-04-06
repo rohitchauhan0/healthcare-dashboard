@@ -7,7 +7,7 @@ import { DataTable } from "@/components/table/DataTable";
 import { StatCard } from "@/components/StatCard";
 import { useEffect, useState } from "react";
 import { apiconnector } from "@/config/api-connector";
-
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 interface Appointment {
   cancellationReason: string;
   user: any;

@@ -27,6 +27,7 @@ export enum FormFieldType {
 }
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 interface CustomProps {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   control: Control<any>;
   name: string;
   label?: string;
@@ -37,6 +38,7 @@ interface CustomProps {
   dateFormat?: string;
   showTimeSelect?: boolean;
   children?: React.ReactNode;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   renderSkeleton?: (field: any) => React.ReactNode;
   fieldType: FormFieldType;
 }

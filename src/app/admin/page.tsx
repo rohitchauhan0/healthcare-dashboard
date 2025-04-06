@@ -9,6 +9,8 @@ import { useEffect, useState } from "react";
 import { apiconnector } from "@/config/api-connector";
 
 interface Appointment {
+  cancellationReason: string;
+  user: any;
   _id: string;
   patientId: {
     _id: string;
@@ -33,7 +35,7 @@ interface AppointmentResponse {
 
 
 const Page = () => {
-  const [appointments, setAppointments] = useState<any[]>([]);
+  const [appointments, setAppointments] = useState<Appointment[]>([]);
   const [scheduledCount, setScheduledCount] = useState(0);
   const [pendingCount, setPendingCount] = useState(0);
   const [cancelledCount, setCancelledCount] = useState(0);
@@ -97,7 +99,15 @@ const Page = () => {
           />
         </section>
 
-        <DataTable columns={columns(true)} data={appointments} />
+        <DataTable columns={columns(true)} data={appointments.map(appointment => ({
+          ...appointment,
+          schedule: new Date(appointment.schedule),
+          name: appointment.user?.name || '',
+          note: appointment.user?.note || '',
+          userId: appointment.user?.id || '',
+          cancellationReason: appointment.cancellationReason || '',
+          isAdmin: appointment.user?.isAdmin || false
+        }))} />
       </main>
     </div>
   );

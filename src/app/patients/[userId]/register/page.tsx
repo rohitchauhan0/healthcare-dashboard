@@ -3,7 +3,6 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { apiconnector } from "@/config/api-connector";
 import RegisterForm from "@/components/RegisterForm";
-import { redirect } from "next/dist/server/api-utils";
 
 type SearchParamProps = {
   params: {

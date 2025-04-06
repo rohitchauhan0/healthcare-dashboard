@@ -1,4 +1,4 @@
-import Appointment from "@/app/patients/[userId]/new-appointment/page";
+
 import { connectWithDb } from "@/config/database";
 import { NewAppointment } from "@/model/user";
 import { User } from "@/model/user";
@@ -16,7 +16,7 @@ export const POST = async (req: NextRequest) => {
 };
 
 
-export const GET = async (req: NextRequest) => {
+export const GET = async () => {
   try {
     const allAppointments = await NewAppointment.find().populate("patientId").sort({ createdAt: -1 }).exec();
     const [scheduledCount, pendingCount, cancelledCount] = await Promise.all([

@@ -25,7 +25,7 @@ export enum FormFieldType {
   SELECT = "select",
   SKELETON = "skeleton",
 }
-
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 interface CustomProps {
   control: Control<any>;
   name: string;
@@ -40,7 +40,7 @@ interface CustomProps {
   renderSkeleton?: (field: any) => React.ReactNode;
   fieldType: FormFieldType;
 }
-
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const RenderInput = ({ field, props }: { field: any; props: CustomProps }) => {
   switch (props.fieldType) {
     case FormFieldType.INPUT:

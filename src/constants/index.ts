@@ -1,5 +1,5 @@
 export const GenderOptions = ["Male", "Female", "Other"];
-
+declare type Gender = "Male" | "Female" | "Other";
 export const PatientFormDefaultValues = {
   firstName: "",
   lastName: "",
